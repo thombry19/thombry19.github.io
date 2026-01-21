@@ -8,44 +8,34 @@ function toggleMenu() {
 }
 
 const track = document.querySelector('.carousel-track');
-const items = Array.from(document.querySelectorAll('.carousel-item'));
-let centerIndex = 1; // index of center image
-let autoScrollInterval;
-let autoScrollSpeed = 3000; // 3 seconds
+const items = Array.from(track.children);
+let currentIndex = 0;
 
 function updateCarousel() {
   items.forEach((item, index) => {
-    item.classList.remove('center');
-    if (index === centerIndex) item.classList.add('center');
+    item.classList.remove('active');
   });
+  items[currentIndex].classList.add('active');
 
-  const offset = centerIndex - 1; // so 3 images show
-  const percent = -(offset * 33.333); // each item 33%
-  track.style.transform = `translateX(${percent}%)`;
+  const trackWidth = track.offsetWidth;
+  const itemWidth = items[currentIndex].offsetWidth;
+  const offset = trackWidth / 2 - itemWidth / 2 - items[currentIndex].offsetLeft;
+
+  track.style.transform = `translateX(${offset}px)`;
 }
 
 function nextImage() {
-  centerIndex = (centerIndex + 1) % items.length;
+  currentIndex = (currentIndex + 1) % items.length;
   updateCarousel();
-  resetAutoScroll();
 }
 
 function prevImage() {
-  centerIndex = (centerIndex - 1 + items.length) % items.length;
+  currentIndex = (currentIndex - 1 + items.length) % items.length;
   updateCarousel();
-  resetAutoScroll();
-}
-
-// Auto-scroll
-function startAutoScroll() {
-  autoScrollInterval = setInterval(nextImage, autoScrollSpeed);
-}
-
-function resetAutoScroll() {
-  clearInterval(autoScrollInterval);
-  setTimeout(startAutoScroll, autoScrollSpeed);
 }
 
 // Initialize
 updateCarousel();
-startAutoScroll();
+
+// Optional: Auto-scroll
+let autoScroll = setInterval(nextImage, 4000);
