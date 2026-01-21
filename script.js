@@ -1,8 +1,10 @@
+// Hamburger menu toggle
 function toggleMenu() {
   const menu = document.getElementById("dropdown-menu");
   menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
 
+// Carousel setup
 const track = document.querySelector('.carousel-track');
 const items = Array.from(track.children);
 let currentIndex = 0;
@@ -54,7 +56,7 @@ function closeLightbox(){
   document.querySelector('.menu-button').style.pointerEvents='auto';
 }
 
-// click outside to close
+// click outside to close lightbox
 document.getElementById('lightbox').addEventListener('click', e=>{
   if(e.target===e.currentTarget) closeLightbox();
 });
