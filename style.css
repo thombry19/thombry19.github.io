@@ -20,14 +20,21 @@ nav a {
   text-decoration: none;
 }
 
+/* Section background and headers */
 section {
-  padding: 3rem 2rem;
   max-width: 900px;
   margin: auto;
+  padding: 3rem 2rem;
+  background: linear-gradient(90deg, #f0f4ff, #ffffff); /* soft gradient for all sections */
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
 section h2 {
-  color: #5a67d8;
+  color: #4c51bf; /* same color as hero accent */
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .project {
@@ -107,3 +114,6 @@ section h2 {
     margin-top: 1.5rem;
   }
 }
+#projects { background: #e6f0ff; }
+#about { background: #fff0f5; }
+#contact { background: #f0fff4; }
