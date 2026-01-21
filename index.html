@@ -1,64 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<header class="hero">
-  <div class="hero-text">
-    <h1>Thomas Bryant</h1>
-    <p>Computer Science Student | Game Developer</p>
-  </div>
 
-  <img src="Thomas_1.png" alt="Photo of Thomas Bryant" class="profile-pic">
-</header>
+<head>
+  <meta charset="UTF-8">
+  <title>Thomas Bryant | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
 <body>
 
-<header>
-  <h1>Thomas Bryant</h1>
-  <p>Computer Science Student | Game Developer</p>
-  <nav>
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <!-- Hamburger Menu -->
+  <div class="menu-button" onclick="toggleMenu()">☰</div>
 
-<div class="menu-button" onclick="toggleMenu()">
-  ☰
-</div>
-
-<div id="dropdown-menu" class="dropdown-menu">
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-</div>
-  
-<section id="projects">
-  <h2>Projects</h2>
-
-  <div class="project">
-    <h3>Celeste Fusion Collab</h3>
-    <p>Project lead for a 200+ contributor game collaboration.</p>
+  <div id="dropdown-menu" class="dropdown-menu">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
   </div>
 
-  <div class="project">
-    <h3>Strawberry Jam Collab</h3>
-    <p>Lead organizer for a charity-focused modding project that raised $5,000.</p>
-  </div>
-</section>
+  <!-- Hero Header -->
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Thomas Bryant</h1>
+      <p>Computer Science Student | Game Developer</p>
+    </div>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>
-    I'm a Computer Science student at UNC Chapel Hill with a passion for
-    game development, large-scale collaboration, and creative problem solving.
-  </p>
-</section>
+    <img src="Thomas_1.png" alt="Photo of Thomas Bryant" class="profile-pic">
+  </header>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: thomasbrybry@gmail.com</p>
-  <p>GitHub: <a href="https://github.com/thombry">github.com/thombry</a></p>
-</section>
-  
-<script src="script.js"></script>
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+      <h3>Celeste Fusion Collab</h3>
+      <p>Project lead for a 200+ contributor game collaboration.</p>
+    </div>
+
+    <div class="project">
+      <h3>Strawberry Jam Collab</h3>
+      <p>Lead organizer for a charity-focused modding project that raised $5,000.</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm a Computer Science student at UNC Chapel Hill with a passion for
+      game development, large-scale collaboration, and creative problem solving.
+    </p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: thomasbrybry@gmail.com</p>
+    <p>
+      GitHub:
+      <a href="https://github.com/thombry" target="_blank">
+        github.com/thombry
+      </a>
+    </p>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
