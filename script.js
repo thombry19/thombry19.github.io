@@ -40,27 +40,32 @@ updateCarousel();
 // Optional: Auto-scroll
 let autoScroll = setInterval(nextImage, 4000);
 
-// Lightbox functionality
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = lightbox.querySelector('img');
-const lightboxDesc = document.getElementById('lightbox-desc');
-const lightboxLink = document.getElementById('lightbox-link');
+function openLightbox(img) {
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = lightbox.querySelector('img');
+  const desc = document.getElementById('lightbox-desc');
+  const link = document.getElementById('lightbox-link');
 
-items.forEach((item, index) => {
-  item.addEventListener('click', () => {
-    const img = item.querySelector('img');
-    const desc = item.querySelector('.carousel-desc p').innerText;
-    const link = item.querySelector('.carousel-desc a')?.href || '';
+  lbImg.src = img.src;
+  desc.textContent = img.nextElementSibling?.querySelector('p')?.textContent || '';
+  const aTag = img.nextElementSibling?.querySelector('a');
+  link.href = aTag ? aTag.href : '#';
+  link.style.display = aTag ? 'inline-block' : 'none';
 
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-    lightboxDesc.innerText = desc;
-    lightboxLink.href = link;
+  lightbox.style.display = 'flex';
 
-    lightbox.style.display = 'flex';
-  });
-});
+  // disable menu while lightbox is open
+  document.querySelector('.menu-button').style.pointerEvents = 'none';
+}
 
 function closeLightbox() {
-  lightbox.style.display = 'none';
+  document.getElementById('lightbox').style.display = 'none';
+  document.querySelector('.menu-button').style.pointerEvents = 'auto';
 }
+
+// close when clicking outside content
+document.getElementById('lightbox').addEventListener('click', function(e){
+  if(e.target === this){
+    closeLightbox();
+  }
+});
