@@ -1,143 +1,11 @@
-/* Base styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f8f9fa;
-  color: #333;
-}
+/* Base and header omitted for brevity, keep your existing styles */
 
-/* Header / Hero section */
-header {
-  background: linear-gradient(135deg, #667eea, #764ba2); /* full-width background */
-  color: white;
-  text-align: center;
-  padding: 4rem 2rem;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 3rem;
-}
-
-header p {
-  margin: 0.5rem 0 0 0;
-  font-size: 1.5rem;
-  font-weight: 300;
-}
-
-header nav {
-  margin-top: 1.5rem;
-}
-
-header nav a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-header nav a:hover {
-  text-decoration: underline;
-}
-
-/* Section background and headers */
-section {
-  max-width: 900px;
-  margin: auto;
-  padding: 3rem 2rem;
-  background: linear-gradient(90deg, #f0f4ff, #ffffff); /* soft gradient for sections */
-  border-radius: 12px;
-  margin-bottom: 2rem;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-}
-
-section h2 {
-  color: #4c51bf; /* accent color */
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-/* Individual project cards */
-.project {
-  background: white;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease;
-}
-
-.project:hover {
-  transform: translateY(-5px);
-}
-
-/* Hamburger button */
-.menu-button {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  font-size: 30px;
-  cursor: pointer;
-  z-index: 1001;
-  user-select: none;
-}
-
-/* Dropdown menu */
-.dropdown-menu {
-  position: fixed;
-  top: 60px;
-  right: 20px;
-  background: #222;
-  border-radius: 8px;
-  display: none;
-  flex-direction: column;
-  min-width: 150px;
-  z-index: 1000;
-}
-
-/* Menu links */
-.dropdown-menu a {
-  color: white;
-  padding: 12px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-menu a:hover {
-  background: #444;
-}
-
-/* Profile pic (if used) */
-.profile-pic {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid white;
-}
-
-/* Section specific colors */
-#projects { background: #e6f0ff; }
-#about { background: #fff0f5; }
-#contact { background: #f0fff4; }
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  header {
-    padding: 3rem 1rem;
-  }
-
-  .profile-pic {
-    margin-top: 1.5rem;
-  }
-}
-
+/* Carousel */
 #carousel {
   max-width: 900px;
   margin: auto;
   text-align: center;
-  padding: 4rem 2rem 3rem 2rem; /* more top padding */
-  box-sizing: border-box;
+  padding: 5rem 2rem 3rem 2rem;
 }
 
 .carousel-container {
@@ -145,9 +13,8 @@ section h2 {
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 100%;
   overflow: visible;
-  margin: 2rem 0;
+  margin-top: 2rem;
 }
 
 .carousel-track {
@@ -157,38 +24,36 @@ section h2 {
 }
 
 .carousel-item {
-  flex: 0 0 25%; /* width of each item relative to container */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 10px;
-  opacity: 0.5; /* side images appear faded */
-  transform: scale(0.8); /* side images smaller */
+  flex: 0 0 30%;
+  margin: 0 10px;
+  opacity: 0.5;
+  transform: scale(0.85);
   transition: transform 0.5s ease, opacity 0.5s ease;
+  cursor: pointer;
 }
 
 .carousel-item img {
-  width: 100%; /* makes images fill the flex item */
-  border-radius: 3px;
+  width: 100%;
+  display: block;
+  border-radius: 0;
 }
 
-/* Highlight the center image */
+/* Active center image */
 .carousel-item.active {
-  flex: 0 0 40%; /* bigger width */
+  flex: 0 0 40%;
   opacity: 1;
-  transform: scale(1.1); /* larger scale */
+  transform: scale(1.1);
 }
 
-/* Description only shows for center */
-.carousel-desc {
+/* Show description only for center image */
+.carousel-item .carousel-desc {
   display: none;
-  text-align: center;
-  margin-top: 1rem;
 }
 
 .carousel-item.active .carousel-desc {
   display: block;
+  margin-top: 1rem;
+  text-align: center;
 }
 
 /* Arrows */
@@ -202,33 +67,25 @@ section h2 {
   border: none;
   cursor: pointer;
   padding: 0.5rem 1rem;
-  border-radius: 50%;
+  border-radius: 0;
   z-index: 10;
 }
 
-.arrow.left {
-  left: 10px;
-}
+.arrow.left { left: 10px; }
+.arrow.right { right: 10px; }
+.arrow:hover { background: rgba(0,0,0,0.6); }
 
-.arrow.right {
-  right: 10px;
-}
-
-
-.arrow:hover {
-  background: rgba(0,0,0,0.7);
-}
-
+/* Lightbox */
 #lightbox {
   position: fixed;
   top:0;
   left:0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.9);
   display: none;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 2000;
 }
 
@@ -237,25 +94,24 @@ section h2 {
   max-width: 90%;
   max-height: 90%;
   text-align: center;
+  color: white;
 }
 
 #lightbox img {
   max-width: 100%;
-  max-height: 70vh;
+  max-height: 80vh;
 }
 
 #lightbox .close {
   position: absolute;
   top: 20px;
-  left: 20px; /* moved to left */
-  background: rgba(255,255,255,0.3);
-  border: none;
+  left: 20px;
   font-size: 2rem;
   color: white;
+  background: rgba(0,0,0,0.5);
+  border: none;
   cursor: pointer;
   padding: 0.3rem 0.6rem;
-  border-radius: 5px;
-  z-index: 10;
 }
 
 #lightbox a {
