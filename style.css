@@ -140,65 +140,79 @@ section h2 {
 }
 
 .carousel-container {
-  position: relative;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 2rem 0;
 }
 
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease;
+  align-items: center;
 }
 
 .carousel-item {
-  min-width: 33%; /* Show 3 at a time */
+  flex: 0 0 25%; /* width of each item relative to container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  opacity: 0.5; /* side images appear faded */
+  transform: scale(0.8); /* side images smaller */
   transition: transform 0.5s ease, opacity 0.5s ease;
-  position: relative;
-  text-align: center;
 }
 
 .carousel-item img {
-  width: 90%;
+  width: 100%; /* makes images fill the flex item */
   border-radius: 12px;
-  transition: transform 0.5s ease;
 }
 
-.carousel-item .carousel-desc {
-  display: none; /* only show for center image */
-  margin-top: 0.5rem;
+/* Highlight the center image */
+.carousel-item.active {
+  flex: 0 0 40%; /* bigger width */
+  opacity: 1;
+  transform: scale(1.1); /* larger scale */
 }
 
-.carousel-item.center img {
-  transform: scale(1.2);
+/* Description only shows for center */
+.carousel-desc {
+  display: none;
+  text-align: center;
+  margin-top: 1rem;
 }
 
-.carousel-item.center .carousel-desc {
+.carousel-item.active .carousel-desc {
   display: block;
 }
 
+/* Arrows */
 .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  border: none;
-  color: white;
   font-size: 2rem;
-  padding: 0.5rem 1rem;
+  background: rgba(0,0,0,0.3);
+  color: white;
+  border: none;
   cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
   z-index: 10;
-  border-radius: 8px;
 }
 
 .arrow.left {
-  left: 0;
+  left: 10px;
 }
 
 .arrow.right {
-  right: 0;
+  right: 10px;
 }
+
 
 .arrow:hover {
   background: rgba(0,0,0,0.7);
