@@ -30,3 +30,39 @@ section {
   margin-bottom: 1rem;
   border-radius: 8px;
 }
+
+/* Hamburger button */
+.menu-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 1001;
+  user-select: none;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background: #222;
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  min-width: 150px;
+  z-index: 1000;
+}
+
+/* Menu links */
+.dropdown-menu a {
+  color: white;
+  padding: 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu a:hover {
+  background: #444;
+}
