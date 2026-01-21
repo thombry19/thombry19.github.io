@@ -131,3 +131,75 @@ section h2 {
     margin-top: 1.5rem;
   }
 }
+
+#carousel {
+  max-width: 900px;
+  margin: auto;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  min-width: 33%; /* Show 3 at a time */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  position: relative;
+  text-align: center;
+}
+
+.carousel-item img {
+  width: 90%;
+  border-radius: 12px;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item .carousel-desc {
+  display: none; /* only show for center image */
+  margin-top: 0.5rem;
+}
+
+.carousel-item.center img {
+  transform: scale(1.2);
+}
+
+.carousel-item.center .carousel-desc {
+  display: block;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 8px;
+}
+
+.arrow.left {
+  left: 0;
+}
+
+.arrow.right {
+  right: 0;
+}
+
+.arrow:hover {
+  background: rgba(0,0,0,0.7);
+}
