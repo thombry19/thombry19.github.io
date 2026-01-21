@@ -1,3 +1,6 @@
+/* =======================
+   General Styles
+======================= */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -5,6 +8,9 @@ body {
   color: #333;
 }
 
+/* =======================
+   Hero Section
+======================= */
 .hero {
   display: flex;
   align-items: center;
@@ -14,40 +20,31 @@ body {
   color: white;
 }
 
+.hero-text h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid white;
+}
+
+/* =======================
+   Navigation
+======================= */
 nav a {
   color: white;
   margin: 0 10px;
   text-decoration: none;
-}
-
-/* Section background and headers */
-section {
-  max-width: 900px;
-  margin: auto;
-  padding: 3rem 2rem;
-  background: linear-gradient(90deg, #f0f4ff, #ffffff); /* soft gradient for all sections */
-  border-radius: 12px;
-  margin-bottom: 2rem;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-}
-
-section h2 {
-  color: #4c51bf; /* same color as hero accent */
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.project {
-  background: white;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease;
-}
-
-.project:hover {
-  transform: translateY(-5px);
 }
 
 /* Hamburger button */
@@ -74,7 +71,6 @@ section h2 {
   z-index: 1000;
 }
 
-/* Menu links */
 .dropdown-menu a {
   color: white;
   padding: 12px;
@@ -86,24 +82,58 @@ section h2 {
   background: #444;
 }
 
-.hero-text h1 {
-  font-size: 3rem;
-  margin: 0;
+/* =======================
+   Sections
+======================= */
+section {
+  max-width: 900px;
+  margin: auto;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
-.hero-text p {
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
+/* Section-specific backgrounds */
+#projects { background: #e6f0ff; }
+#about    { background: #fff0f5; }
+#contact  { background: #f0fff4; }
+
+/* Section Headers */
+section h2 {
+  color: white; /* text color */
+  background: #4c51bf; /* default banner color */
+  padding: 0.8rem 1.5rem;
+  text-align: center;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  display: inline-block;
 }
 
-.profile-pic {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid white;
+/* Optional: Different header colors per section */
+#projects h2 { background: #4c51bf; }
+#about h2    { background: #d46ebf; }
+#contact h2  { background: #38a169; }
+
+/* =======================
+   Projects Cards
+======================= */
+.project {
+  background: white;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
 }
 
+.project:hover {
+  transform: translateY(-5px);
+}
+
+/* =======================
+   Responsive Styles
+======================= */
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
@@ -114,6 +144,3 @@ section h2 {
     margin-top: 1.5rem;
   }
 }
-#projects { background: #e6f0ff; }
-#about { background: #fff0f5; }
-#contact { background: #f0fff4; }
