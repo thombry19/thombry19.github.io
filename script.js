@@ -39,3 +39,28 @@ updateCarousel();
 
 // Optional: Auto-scroll
 let autoScroll = setInterval(nextImage, 4000);
+
+// Lightbox functionality
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('img');
+const lightboxDesc = document.getElementById('lightbox-desc');
+const lightboxLink = document.getElementById('lightbox-link');
+
+items.forEach((item, index) => {
+  item.addEventListener('click', () => {
+    const img = item.querySelector('img');
+    const desc = item.querySelector('.carousel-desc p').innerText;
+    const link = item.querySelector('.carousel-desc a')?.href || '';
+
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxDesc.innerText = desc;
+    lightboxLink.href = link;
+
+    lightbox.style.display = 'flex';
+  });
+});
+
+function closeLightbox() {
+  lightbox.style.display = 'none';
+}
