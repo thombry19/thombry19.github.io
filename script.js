@@ -44,7 +44,34 @@ function prevImage() {
 }
 
 updateCarousel();
-setInterval(nextImage, 4000);
+let autoplayTimer = null;
+let resumeTimer = null;
+const AUTOPLAY_DELAY = 4000;
+const COOLDOWN_TIME = 10000;
+
+function startAutoplay() {
+  stopAutoplay();
+  autoplayTimer = setInterval(nextImage, AUTOPLAY_DELAY);
+}
+
+function stopAutoplay() {
+  if (autoplayTimer) {
+    clearInterval(autoplayTimer);
+    autoplayTimer = null;
+  }
+}
+
+function pauseAutoplayWithCooldown() {
+  stopAutoplay();
+
+  if (resumeTimer) {
+    clearTimeout(resumeTimer);
+  }
+
+  resumeTimer = setTimeout(() => {
+    startAutoplay();
+  }, COOLDOWN_TIME);
+}
 
 // Lightbox
 function openLightbox(img){
