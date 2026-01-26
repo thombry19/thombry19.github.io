@@ -255,3 +255,71 @@ section h2 {
   color: #fff;
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  header p {
+    font-size: 1.1rem;
+  }
+
+  section {
+    padding: 2rem 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-track {
+    transition: transform 0.4s ease;
+  }
+
+  .carousel-item,
+  .carousel-item.close {
+    flex: 0 0 90%;
+    opacity: 0;
+    transform: scale(1);
+  }
+
+  .carousel-item.active {
+    flex: 0 0 90%;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .arrow {
+    font-size: 2.5rem;
+    padding: 0.75rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dropdown-menu {
+    width: 80vw;
+    right: 10px;
+  }
+
+  .dropdown-menu a {
+    padding: 16px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .project {
+    margin-bottom: 1.5rem;
+  }
+}
+
+button,
+.arrow,
+.menu-button,
+.dropdown-menu a {
+  min-height: 44px;
+}
+
