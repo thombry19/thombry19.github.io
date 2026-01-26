@@ -77,6 +77,9 @@ function pauseAutoplayWithCooldown() {
 updateCarousel();
 startAutoplay();
 
+track.addEventListener('mouseenter', stopAutoplay);
+track.addEventListener('mouseleave', startAutoplay);
+
 // Lightbox
 function openLightbox(img){
   const lb=document.getElementById('lightbox');
