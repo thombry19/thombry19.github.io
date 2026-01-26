@@ -36,11 +36,13 @@ function updateCarousel() {
 function nextImage() {
   currentIndex = (currentIndex + 1) % items.length;
   updateCarousel();
+  pauseAutoplayWithCooldown();
 }
 
 function prevImage() {
   currentIndex = (currentIndex - 1 + items.length) % items.length;
   updateCarousel();
+  pauseAutoplayWithCooldown();
 }
 
 updateCarousel();
@@ -72,6 +74,8 @@ function pauseAutoplayWithCooldown() {
     startAutoplay();
   }, COOLDOWN_TIME);
 }
+updateCarousel();
+startAutoplay();
 
 // Lightbox
 function openLightbox(img){
