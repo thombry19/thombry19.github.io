@@ -10,12 +10,26 @@ const items = Array.from(track.children);
 let currentIndex = 0;
 
 function updateCarousel() {
-  items.forEach((item,i)=>item.classList.remove('active'));
-  items[currentIndex].classList.add('active');
+  items.forEach((item, i) => {
+    item.classList.remove('active', 'close');
+
+    const rawDistance = Math.abs(i - currentIndex);
+    const distance = Math.min(rawDistance, items.length - rawDistance);
+
+    if (distance === 0) {
+      item.classList.add('active');
+    } else if (distance === 1) {
+      item.classList.add('close');
+    }
+    // distance >= 2 → stays invisible
+  });
 
   const trackWidth = track.offsetWidth;
   const itemWidth = items[currentIndex].offsetWidth;
-  const offset = trackWidth/2 - itemWidth/2 - items[currentIndex].offsetLeft;
+  const offset =
+    trackWidth / 2 -
+    itemWidth / 2 -
+    items[currentIndex].offsetLeft;
 
   track.style.transform = `translateX(${offset}px)`;
 }
