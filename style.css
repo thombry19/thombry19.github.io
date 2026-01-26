@@ -112,8 +112,8 @@ section h2 {
 
 /* Section specific colors */
 #projects { background: #e6f0ff; }
-#about { background: #fff0f5; }
-#contact { background: #f0fff4; }
+#about { background: #e6f0ff; }
+#contact { background: #7ca3d0; }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
