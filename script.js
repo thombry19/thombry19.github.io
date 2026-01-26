@@ -73,3 +73,15 @@ function closeLightbox(){
 document.getElementById('lightbox').addEventListener('click', e=>{
   if(e.target===e.currentTarget) closeLightbox();
 });
+
+let startX = 0;
+
+track.addEventListener('touchstart', e => {
+  startX = e.touches[0].clientX;
+});
+
+track.addEventListener('touchend', e => {
+  const endX = e.changedTouches[0].clientX;
+  if (endX - startX > 50) prevImage();
+  if (startX - endX > 50) nextImage();
+});
