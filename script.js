@@ -13,15 +13,14 @@ function updateCarousel() {
   items.forEach((item, i) => {
     item.classList.remove('active', 'close');
 
-    const rawDistance = Math.abs(i - currentIndex);
-    const distance = Math.min(rawDistance, items.length - rawDistance);
+    const distance = Math.abs(i - currentIndex);
 
     if (distance === 0) {
       item.classList.add('active');
     } else if (distance === 1) {
       item.classList.add('close');
     }
-    // distance >= 2 → stays invisible
+    // distance >= 2 → invisible
   });
 
   const trackWidth = track.offsetWidth;
